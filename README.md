@@ -34,4 +34,4 @@ This will:
 2. Remove the service and timer files
 3. Reload the systemd daemon
 
-The scripts require root access, granted during execution via sudo.
+**The scripts require root access, granted during execution via sudo.**
