@@ -1,0 +1,12 @@
+[Unit]
+Description=Fix Tailscale directly connected route priority
+Wants=tailscaled.service network-online.target
+After=tailscaled.service network.target network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "for DEST in `ip rule list priority 5205 |awk '{ print $5 }'`; do if ! ip route list | grep -q \"$DEST .* proto kernel scope link\"; then sudo ip rule del from all to $DEST priority 5205 table main; fi; done"
+ExecStart=/bin/bash -c "for DEST in `ip route list table main |/usr/bin/uniq |awk '/proto kernel scope link/ { print $1 }'`; do if ! ip rule list priority 5205 $DEST | grep -q \"$DEST\"; then ip rule add from all to $DEST priority 5205 table main; fi; done;"
+
+[Install]
+WantedBy=multi-user.target

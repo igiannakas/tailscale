@@ -1,0 +1,12 @@
+[Unit]
+Description=Fix Tailscale directly connected route priority
+Requires=tailscale-directconnect-routes.service
+
+[Timer]
+OnStartupSec=0
+OnUnitActiveSec=60
+OnUnitInactiveSec=60
+Unit=tailscale-directconnect-routes.service
+
+[Install]
+WantedBy=timers.target
