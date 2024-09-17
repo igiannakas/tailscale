@@ -16,7 +16,10 @@ To deploy this fix, run the following command on your Debian machine:
 ```bash
 curl -sS https://raw.githubusercontent.com/igiannakas/tailscale/main/deploy.sh | sudo bash
 ```
-
+This will:
+1. Download the necessary files.
+2. Move them to the correct location.
+3. Enable and start the service and timer to fix the connectivity issue.
 To uninstall run the following command on your Debian machine:
 
 ```bash
@@ -24,6 +27,6 @@ curl -sS https://raw.githubusercontent.com/igiannakas/tailscale/main/uninstall.s
 ```
 
 This will:
-1. Download the necessary files.
-2. Move them to the correct location.
-3. Enable and start the service and timer to fix the connectivity issue.
+1. Stop and disable the service and timer.
+2. Remove the service and timer files
+3. Reload the systemd daemon
