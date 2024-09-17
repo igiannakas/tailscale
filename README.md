@@ -1,5 +1,5 @@
 
-# Tailscale Direct Connect Routes Fix
+# Fix Tailscale breaking direct LAN connectivity to node when accept-routes is enabled
 
 This script automates the deployment of the issue fix where a Tailscale node becomes inaccessible from the local LAN when Tailscale is configured with `accept-routes=true` and routes that point back to the LAN where the node is deployed are present in tailscale.
 
