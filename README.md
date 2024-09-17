@@ -17,6 +17,12 @@ To deploy this fix, run the following command on your Debian machine:
 curl -sS https://raw.githubusercontent.com/igiannakas/tailscale/main/deploy.sh | sudo bash
 ```
 
+To uninstall run the following command on your Debian machine:
+
+```bash
+curl -sS https://raw.githubusercontent.com/igiannakas/tailscale/main/uninstall.sh | sudo bash
+```
+
 This will:
 1. Download the necessary files.
 2. Move them to the correct location.
